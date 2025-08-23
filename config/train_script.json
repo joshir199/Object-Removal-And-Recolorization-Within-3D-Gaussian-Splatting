@@ -1,0 +1,4 @@
+{
+    "densify_until_iter": 15000,
+    "num_classes": 256
+}

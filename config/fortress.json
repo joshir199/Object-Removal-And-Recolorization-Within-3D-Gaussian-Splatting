@@ -1,0 +1,29 @@
+{   
+    "object_type": "hq",
+    "object_name": "fortress",
+    "obj_id": 5,
+    "xyz": [ 0.7374, -4.0541, 24.0305],#
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "table",
+    "obj_id": 180,
+    "xyz": [ 0.7374, -4.0541, 24.0305],
+    "color": [1.0, 0.0, 0.0]
+}
+#######################################
+{   
+    "object_type": "hq_processed",
+    "object_name": "fortress",
+    "obj_id": 5,
+    "xyz": [ 1.0542, -4.6713, 25.4400], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "table",
+    "obj_id": 180,
+    "xyz": [ 1.0542, -4.6713, 25.4400],
+    "color": [1.0, 0.0, 0.0]
+}

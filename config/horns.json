@@ -1,0 +1,59 @@
+
+{   
+    "object_type": "hq",
+    "object_name": "big horn",
+    "obj_id": 118,
+    "xyz": [-2.4020, -2.5342, 26.5056],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "left side horn",
+    "obj_id": 57,
+    "xyz": [-5.3987,  0.0390, 25.5226],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "description stand board",
+    "obj_id": 60,
+    "xyz": [0.5642, 0.8063, 1.2465],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "right side horn",
+    "obj_id": 119,
+    "xyz": [0.5642, 0.8063, 1.2465],#
+    "color": [0.0, 1.0, 0.0]
+}
+##############################
+
+{   
+    "object_type": "hq_processed",
+    "object_name": "big horn",
+    "obj_id": 118,
+    "xyz": [-3.4684, -3.2607, 28.4900],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "left side horn",
+    "obj_id": 57,
+    "xyz": [-6.5135, -0.3205, 30.4320],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "description stand board",
+    "obj_id": 60,
+    "xyz": [-5.9839, -0.4744, 23.4187],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "right side horn",
+    "obj_id": 119,
+    "xyz": [0.5642, 0.8063, 1.2465],
+    "color": [0.0, 1.0, 0.0]
+}

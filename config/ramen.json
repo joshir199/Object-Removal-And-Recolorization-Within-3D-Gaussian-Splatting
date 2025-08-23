@@ -1,0 +1,144 @@
+{   
+    "object_type": "normal",
+    "object_name": "bowl",
+    "obj_id": 108,
+    "xyz": [-0.2774,  1.9579,  2.0560], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "bottle",
+    "obj_id": 2,
+    "xyz": [3.0083, 1.5818, 2.5224],#
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "pasta/maggie in bowl",
+    "obj_id": 28,
+    "xyz": [-0.1389,  2.2923,  1.8456],#
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "egg",
+    "obj_id": 109,
+    "xyz": [0.5873, 0.9445, 1.4636],
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "straw",#
+    "obj_id": 119,
+    "xyz": [1.5036, 2.6553, 2.6623],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "sea-weed",
+    "obj_id": 113,
+    "xyz": [-1.2751,  1.1246,  2.4914],
+    "color": [1.0, 0.0, 0.0]
+}
+
+#######
+{   
+    "object_type": "hq",
+    "object_name": "bowl",
+    "obj_id": 35,
+    "xyz": [-0.1585,  2.9949,  1.2812],
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "bottle",
+    "obj_id": 14,
+    "xyz": [0.7737, 2.9954, 0.9596],#
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "cup",
+    "obj_id": 38,
+    "xyz": [0.6238, 3.2391, 0.8111],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "base_plate",
+    "obj_id": 40,
+    "xyz": [0.6514, 3.7160, 0.5828],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "egg",
+    "obj_id": 43,
+    "xyz": [0.1003, 2.4781, 1.1348],
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "straw",
+    "obj_id": 50,
+    "xyz": [-0.0094,  3.9399,  0.2752],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "sea-weed",
+    "obj_id": 36,
+    "xyz": [1.1635, 3.6785, 0.6055],#
+    "color": [1.0, 0.0, 0.0]
+}
+#######
+
+{   
+    "object_type": "hq_processed",
+    "object_name": "bowl",
+    "obj_id": 35,
+    "xyz": [-0.1585,  2.9949,  1.2812],#
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "bottle",
+    "obj_id": 14,
+    "xyz": [0.4033, 3.5778, 1.1879],#
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "cup",
+    "obj_id": 38,
+    "xyz": [-0.1585,  2.9949,  1.2812],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "base_plate",
+    "obj_id": 40,
+    "xyz": [0.2241, 3.0702, 1.3290],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "egg",
+    "obj_id": 43,
+    "xyz": [-0.4277,  2.6777,  1.6141],#
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "straw",
+    "obj_id": 50,
+    "xyz": [-0.4311,  3.6095,  0.7908],#
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "sea-weed",
+    "obj_id": 36,
+    "xyz": [0.5873, 0.9445, 1.4636],#
+    "color": [1.0, 0.0, 0.0]
+}

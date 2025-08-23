@@ -1,0 +1,22 @@
+{   
+    "object_type": "hq",
+    "object_name": "ship",
+    "obj_id": 4,
+    "xyz": [0.0835, 0.3759, 1.9616], #
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "container",
+    "obj_id": 14,
+    "xyz": [0.1754, 0.2319, 1.9822], 
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "container inside",
+    "obj_id": 15,
+    "xyz": [2.4707, 0.7677, 1.8945], #
+    "color": [1.0, 1.0, 1.0]
+}
+#

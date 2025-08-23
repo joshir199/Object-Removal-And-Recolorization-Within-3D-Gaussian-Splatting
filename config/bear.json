@@ -1,0 +1,58 @@
+{   
+    "object_type": "normal",
+    "object_name": "bear",
+    "obj_id": 34,
+    "xyz": [0.5873, 0.9445, 1.4636],
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "big rock below bear",
+    "obj_id": 32,
+    "xyz": [1.897,  -2.907,  -3.121], #
+    "color": [0.0, 0.0, 1.0]
+}
+######################
+{   
+    "object_type": "hq",
+    "object_name": "bear",
+    "obj_id": 51,
+    "xyz": [0.5642, 0.8063, 1.2465],
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "base rock of bear",
+    "obj_id": 52,
+    "xyz": [0.1624, 1.5909, 1.8809],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "big rock below bear",
+    "obj_id": 50,
+    "xyz": [-0.3410,  1.7993,  1.9638], #
+    "color": [0.0, 0.0, 1.0]
+}
+######################
+{   
+    "object_type": "hq_processed",
+    "object_name": "bear",
+    "obj_id": 51,
+    "xyz": [0.5642, 0.8063, 1.2465],
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "base rock of bear",
+    "obj_id": 52,
+    "xyz": [0.1624, 1.5909, 1.8809],
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq_processed",
+    "object_name": "big rock below bear",
+    "obj_id": 50,
+    "xyz": [-0.3410,  1.7993,  1.9638], #
+    "color": [0.0, 0.0, 1.0]
+}

@@ -1,0 +1,212 @@
+{   
+    "object_type": "normal",
+    "object_name": "teddy bear",
+    "obj_id": 48,
+    "xyz": [2.4707, 0.7677, 1.8945], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "sheep toy",
+    "obj_id": 97,
+    "xyz": [-2.0240,  1.9267,  0.4048], 
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "apple",
+    "obj_id": 50,
+    "xyz": [-0.5052,  2.2236,  0.9485], 
+    "color": [0.0, 1.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "tea glass",
+    "obj_id": 51,
+    "xyz": [1.6816, 1.5280, 1.3734], #
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "coffee cup",
+    "obj_id": 103,
+    "xyz": [ 2.7807, -1.0143,  3.3544], #
+    "color": [1.0, 0.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "snacks packet",
+    "obj_id": 54,
+    "xyz": [0.1530, 0.8684, 2.2658], #bad
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "white plate",
+    "obj_id": 62,
+    "xyz": [0.0677, 1.8317, 1.8681], 
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "cookie on plate",
+    "obj_id": 118,
+    "xyz": [0.0677, 1.8317, 1.8681], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "tissue paper",
+    "obj_id": 110,
+    "xyz": [0.6724, 1.8515, 1.3419], #
+    "color": [0.0, 0.0, 1.0]
+}
+{   
+    "object_type": "normal",
+    "object_name": "table",
+    "obj_id": 63,
+    "xyz": [0.4369, 0.9533, 2.8751], 
+    "color": [1.0, 1.0, 1.0]
+}
+############################
+{   
+    "object_type": "hq",
+    "object_name": "teddy bear",
+    "obj_id": 18,
+    "xyz": [ 0.0703, -2.5212,  4.0406], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "sheep toy",
+    "obj_id": 70,
+    "xyz": [-0.2354, -2.2786,  2.3622], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "apple",
+    "obj_id": 66,
+    "xyz": [-1.1577, -2.1043,  1.9047], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "tea glass",
+    "obj_id": 86,
+    "xyz": [-1.2192, -1.5249,  0.8553], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "coffee cup",
+    "obj_id": 88,
+    "xyz": [ 0.6231, -2.7068,  2.6261], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "snacks packet",
+    "obj_id": 78,
+    "xyz": [-0.5785,  0.2474, -1.4067], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "white plate",
+    "obj_id": 139,
+    "xyz": [-0.1060, -2.1486,  1.6571], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "cookie on plate",
+    "obj_id": 110,
+    "xyz": [-0.7618, -2.9481,  2.3817], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "tissue paper",
+    "obj_id": 171,
+    "xyz": [-0.2774,  1.9579,  2.0560], #
+    "color": [1.0, 1.0, 1.0]
+}
+{   
+    "object_type": "hq",
+    "object_name": "table",
+    "obj_id": 123,
+    "xyz": [0.0128, 0.6468, 2.1148], 
+    "color": [1.0, 1.0, 1.0]
+}
+############################
+{   
+    "object_type": "hq processed" ,
+    "object_name": "teddy bear",
+    "obj_id": 18,
+    "xyz": [ 0.0703, -2.5212,  4.0406], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "sheep toy",
+    "obj_id": 70,
+    "xyz": [-0.2354, -2.2786,  2.3622], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "apple",
+    "obj_id": 66,
+    "xyz": [-1.1577, -2.1043,  1.9047], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "tea glass",
+    "obj_id": 86,
+    "xyz": [-1.2192, -1.5249,  0.8553], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "coffee cup",
+    "obj_id": 88,
+    "xyz": [ 0.6231, -2.7068,  2.6261], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "snacks packet",
+    "obj_id": 78,
+    "xyz": [-0.5785,  0.2474, -1.4067], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "white plate",
+    "obj_id": 139,
+    "xyz": [-0.1060, -2.1486,  1.6571], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "cookie on plate",
+    "obj_id": 110,
+    "xyz": [-0.7618, -2.9481,  2.3817], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "tissue paper",
+    "obj_id": 171,
+    "xyz": [-0.2774,  1.9579,  2.0560], #
+    "color": [0.0, 1.0, 0.0]
+}
+{   
+    "object_type": "hq processed",
+    "object_name": "table",
+    "obj_id": 123,
+    "xyz": [0.0128, 0.6468, 2.1148], 
+    "color": [0.0, 1.0, 0.0]
+}
