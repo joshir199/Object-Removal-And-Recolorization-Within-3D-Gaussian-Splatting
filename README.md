@@ -4,6 +4,10 @@
 
 This project introduces a novel framework for multi-view consistent 3D segmentation using 3D Gaussian Splatting and high-quality 2D segmentation features from SAM-HQ. Our approach enables real-time object removal and recolorization in dynamic 3D scenes, addressing challenges in mask quality and computational efficiency. By leveraging state-of-the-art 2D segmentation models and explicit 3D representations, we achieve high-precision segmentation with applications in virtual reality, robotics, and scene editing. The source code, dataset, and detailed results are available in this repository.
 
+Our work introduces :
+1. DEVA with SAM-HQ for creating high quality object mask for 3D scene segmentation.(link: https://github.com/joshir199/Video-Tracking-DEVA-With-SAM-HQ)
+2. Modified differential rasterization code which includes object feature. (link: https://github.com/joshir199/object-feature-rasterization)
+
 ---
 ## Dataset
 
@@ -20,14 +24,26 @@ Please find the dataset here: ![huggingface link](https://huggingface.co/dataset
 
 <figure>
   <img src="assets/object_feature_architecture.jpg" alt="Architecture Diagram 1" width="600">
-  <figcaption>Figure 1: Overview of our object feature based 3D segmentation pipeline using 3D Gaussian Splatting.</figcaption>
+  <figcaption>Overview of the object feature-based 3D Gaussian Splatting training, where highquality
+object masks are generated for each image IGT across N views using SAM-HQ assisted
+video tracking DEVA, followed by preprocessing to ensure cleaner and multi-view consistent
+masks. During training, per-Gaussian object features of dimension 16 are jointly trained with
+other Gaussian parameters, mapped via a linear layer ϕ(f) to 256-dimensional class probabilities,
+and supervised using the ground truth masks labels OGT. This enables label-aware 3D Gaussian
+splatting for interactive scene editing.</figcaption>
 </figure>
 
 &nbsp;
 
 <figure>
   <img src="assets/multi_label_assignment.jpg" alt="Architecture Diagram 2" width="600">
-  <figcaption>Figure 2: Detailed view of the feature distillation and mask-lifting modules.</figcaption>
+  <figcaption>Prior-based label reassignment: The figure illustrates our novel pipeline for label
+reassignment, where a user-selected point (x, y, z) in the reconstructed 3D Gaussian Splatting
+scene is used to collect K-nearest Gaussian neighbors for object identification. In parallel, 3D
+Gaussians are projected onto the ground-truth object masks to compute label voting, which is
+combined with learned label priors to form a label matrix R256×num gaussians; the final binary mask
+for object k is then extracted by selecting all Gaussians that maximally contribute to the chosen
+object k.</figcaption>
 </figure>
 
 ---
@@ -64,7 +80,7 @@ Please find the dataset here: ![huggingface link](https://huggingface.co/dataset
 
 <figure>
   <img src="assets/screenshot_mask.jpg" alt="Result Image 3" width="600">
-  <figcaption>Figure 3: Segmentation result showing precise object boundaries.</figcaption>
+  <figcaption>Figure 1: Segmentation result showing precise object boundaries.</figcaption>
 </figure>
 
 &nbsp;
@@ -72,7 +88,7 @@ Please find the dataset here: ![huggingface link](https://huggingface.co/dataset
   
 <figure>
   <img src="assets/object_removal.jpg" alt="Result Image 4" width="600">
-  <figcaption>Figure 4: Object removal using our method.</figcaption>
+  <figcaption>Figure 2: Object removal using our method.</figcaption>
 </figure>
 
 &nbsp;
@@ -80,14 +96,14 @@ Please find the dataset here: ![huggingface link](https://huggingface.co/dataset
   
 <figure>
   <img src="assets/object_ectraction.jpg" alt="Result Image 5" width="600">
-  <figcaption>Figure 5: Extraction of objects while maintaining multi-view consistency.</figcaption>
+  <figcaption>Figure 3: Extraction of objects while maintaining multi-view consistency.</figcaption>
 </figure>
 
   &nbsp;
   
 <figure>
   <img src="assets/recolor_part1.jpg" alt="Result Image 6" width="600">
-  <figcaption>Figure 6: Recolorization of objects  while maintaining multi-view consistency.</figcaption>
+  <figcaption>Figure 4: Recolorization of objects  while maintaining multi-view consistency.</figcaption>
 </figure>
 
 &nbsp;
@@ -95,7 +111,7 @@ Please find the dataset here: ![huggingface link](https://huggingface.co/dataset
   
 <figure>
   <img src="assets/recolor_part2.jpg" alt="Result Image 7" width="600">
-  <figcaption>Figure 7: Recolorization of objects  while maintaining multi-view consistency.</figcaption>
+  <figcaption>Figure 5: Recolorization of objects  while maintaining multi-view consistency.</figcaption>
 </figure>
 
 ---
