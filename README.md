@@ -180,3 +180,15 @@ The displayed results covers the quality by rendering all the views for various 
 
 
 ---
+
+## Reference Links
+
+This project is built upon the great works of previous projects in the field of 3D Gaussian Splatting research.
+I want to acknowledge and thanks them for keeping it open-source for future research works.
+
+1. Original Gaussian splatting : https://github.com/graphdeco-inria/gaussian-splatting
+2. Track anything with DEVA : https://github.com/hkchengrex/Tracking-Anything-with-DEVA
+3. FlashSplat : https://github.com/florinshen/FlashSplat
+4. Segment Anything in High Quality : https://github.com/SysCV/sam-hq
+
+---
