@@ -71,6 +71,6 @@ This project introduces a novel framework for multi-view consistent 3D segmentat
 
 ---
 
-[Watch demo video](assets/videos/bear_extracted.mp4)
+[Watch demo gifs](assets/gifs/bear_extracted.gif)
 
 ---
