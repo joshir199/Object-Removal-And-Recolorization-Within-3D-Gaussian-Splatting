@@ -55,7 +55,7 @@ This project introduces a novel framework for multi-view consistent 3D segmentat
 </figure>
 
 <figure>
-  <img src="assets/object_extraction.jpg" alt="Result Image 5" width="600">
+  <img src="assets/object_ectraction.jpg" alt="Result Image 5" width="600">
   <figcaption>Figure 5: Extraction of objects while maintaining multi-view consistency.</figcaption>
 </figure>
 
@@ -71,54 +71,6 @@ This project introduces a novel framework for multi-view consistent 3D segmentat
 
 ---
 
-## Video Results
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <div style="flex: 1; min-width: 300px; max-width: 300px; text-align: center;">
-    <video width="100%" controls>
-      <source src="assets/videos/bear_extracted.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Video 1: Real-time segmentation on Scene A.</p>
-  </div>
-  <div style="flex: 1; min-width: 300px; max-width: 300px; text-align: center;">
-    <video width="100%" controls>
-      <source src="assets/videos/bear_extracted.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Video 2: Object removal in dynamic Scene B.</p>
-  </div>
-  <div style="flex: 1; min-width: 300px; max-width: 300px; text-align: center;">
-    <video width="100%" controls>
-      <source src="assets/videos/bear_extracted.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Video 3: Multi-view consistent recolorization.</p>
-  </div>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <div style="flex: 1; min-width: 300px; max-width: 300px; text-align: center;">
-    <video width="100%" controls>
-      <source src="assets/videos/bear_extracted.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Video 4: Segmentation under challenging lighting.</p>
-  </div>
-  <div style="flex: 1; min-width: 300px; max-width: 300px; text-align: center;">
-    <video width="100%" controls>
-      <source src="assets/videos/bear_extracted.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Video 5: Robust segmentation on Scene C.</p>
-  </div>
-  <div style="flex: 1; min-width: 300px; max-width: 300px; text-align: center;">
-    <video width="100%" controls>
-      <source src="assets/videos/bear_extracted.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>Video 6: Object recolorization with varying viewpoints.</p>
-  </div>
-</div>
+[Watch demo video](assets/videos/bear_extracted.mp4)
 
 ---
