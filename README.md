@@ -70,7 +70,84 @@ This project introduces a novel framework for multi-view consistent 3D segmentat
 </figure>
 
 ---
+# Video results
 
-[Watch demo gifs](assets/gifs/bear_extracted.gif)
+Following results shows the ooutput of editing task like recolor, object removal and object extraction on 3D scene. 
+The displayed results covers the quality by rendering all the views for various scene and tasks mentioned as "scene_name [task_name]"
+
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/gifs/bear_recolor.gif" width="320"><br>
+      <b>bear [recolor]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/bear_removed.gif" width="320"><br>
+      <b>bear [removed]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/bear_extracted.gif" width="320"><br>
+      <b>bear [extracted]</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/gifs/fortress_recolor.gif" width="320"><br>
+      <b>fortress [recolor]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/fortress_removed.gif" width="320"><br>
+      <b>fortress [removed]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/fortress_extracted.gif" width="320"><br>
+      <b>fortress [extracted]</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/gifs/horn_recolor.gif" width="320"><br>
+      <b>horn [recolor]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/horn_removed.gif" width="320"><br>
+      <b>horn [removed]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/horn_extracted.gif" width="320"><br>
+      <b>horn [extracted]</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/gifs/ramen_recolor.gif" width="320"><br>
+      <b>ramen [recolor]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/ramen_removed.gif" width="320"><br>
+      <b>ramen [removed]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/ramen_extracted.gif" width="320"><br>
+      <b>ramen [extracted]</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="assets/gifs/teatime_recolor.gif" width="320"><br>
+      <b>teatime [recolor]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/teatime_removed.gif" width="320"><br>
+      <b>teatime [removed]</b>
+    </td>
+    <td align="center">
+      <img src="assets/gifs/teatime_extracted.gif" width="320"><br>
+      <b>teatime [extracted]</b>
+    </td>
+  </tr>
+</table>
+
 
 ---
