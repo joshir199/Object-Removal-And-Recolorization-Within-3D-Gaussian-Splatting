@@ -37,69 +37,6 @@ from plyfile import PlyData, PlyElement
 from utils.system_utils import mkdir_p
 from scipy.spatial import cKDTree
 
-
-def multi_instance_opt(all_counts, slackness=0.):
-    print("all_count before size: ", all_counts)
-    all_counts = torch.nn.functional.normalize(all_counts, dim=0)
-
-
-    all_counts_sum = all_counts.sum(dim=0)
-    print("all_counts_sum : ", all_counts_sum)
-    
-
-    all_obj_labels = torch.zeros_like(all_counts)
-    obj_num = all_counts.size(0)
-    for obj_idx, obj_counts in enumerate(tqdm(all_counts, desc="multi-view optimize")):
-       
-        
-        if obj_counts.sum().item() == 0:
-            continue        
-        
-        # dynamic programming
-        obj_counts = torch.stack([all_counts_sum - obj_counts, obj_counts], dim=0)
-        #print("obj_counts later: ", obj_counts)
-        if slackness != 0:
-            obj_counts = torch.nn.functional.normalize(obj_counts, dim=0)
-            obj_counts[0, :] += slackness
-        obj_label = obj_counts.max(dim=0)[1]
-        all_obj_labels[obj_idx] = obj_label
-        #print("all_obj_labels : ", all_obj_labels)
-    return all_obj_labels
-    
-def multi_instance_opt_cpu(all_counts, slackness=0.0):
-    print("all_count before size:", all_counts.shape)
-
-    # Ensure tensor is on CPU
-    all_counts = all_counts.to("cpu")
-
-    all_counts = torch.nn.functional.normalize(all_counts, dim=0)
-    print("all_count size:", all_counts.shape)
-    print("slackness:", slackness)
-    print("all_count:", all_counts)
-
-    all_counts_sum = all_counts.sum(dim=0)
-    print("all_counts_sum:", all_counts_sum)
-
-
-    all_obj_labels = torch.zeros_like(all_counts)
-    obj_num = all_counts.size(0)
-
-    for obj_idx, obj_counts in enumerate(tqdm(all_counts, desc="multi-view optimize")):
-        if obj_counts.sum().item() == 0:
-            continue
-
-        # Dynamic programming step
-        obj_counts = torch.stack([all_counts_sum - obj_counts, obj_counts], dim=0)
-
-        if slackness != 0:
-            obj_counts = torch.nn.functional.normalize(obj_counts, dim=0)
-            obj_counts[0, :] += slackness
-
-        obj_label = obj_counts.max(dim=0)[1]
-        all_obj_labels[obj_idx] = obj_label
-
-    return all_obj_labels
-
 def mean_neighborhood(input_img, N):
 
     pad = (N - 1) // 2
@@ -248,7 +185,7 @@ def save_edited_ply(gaussians, path, task="remove"):
     print("Edited Gaussians ply file saved: ")
     
 
-def multi_instance_opt_prior_cpu_new(all_counts, object_pred, slackness=0.0, task="recolor", gamma=0.1, conf_threshold=0.25, penalty_k=3.0):
+def label_reassignment_with_prior_cpu(all_counts, object_pred, slackness=0.0, task="recolor", gamma=0.1, conf_threshold=0.25, penalty_k=3.0):
     # Ensure tensor is on CPU
     all_counts = all_counts.to("cpu")
     object_pred = object_pred.to("cpu")
@@ -296,68 +233,6 @@ def multi_instance_opt_prior_cpu_new(all_counts, object_pred, slackness=0.0, tas
 
     return all_obj_labels
 
-
-    
-def multi_instance_opt_prior_cpu(all_counts, object_pred, slackness=0.0, gamma = 1.0):
-    print("all_count before size:", all_counts.shape)
-
-    # Ensure tensor is on CPU
-    all_counts = all_counts.to("cpu")
-    object_pred = object_pred.to("cpu")
-
-    all_counts = torch.nn.functional.normalize(all_counts, dim=0)
-    #print("all_count size:", all_counts.shape)
-    print("slackness:", slackness)
-    #print("all_count:", all_counts)
-
-    all_counts_sum = all_counts.sum(dim=0)
-    print("all_counts_sum:", all_counts_sum)
-
-    initial_labels = torch.argmax(object_pred, dim=0).to("cpu") # [N]
-    pred_scores = torch.max(object_pred, dim=0)[0].to("cpu")    # [N]
-    #print("initial_labels shape:", initial_labels.shape)
-    #print("pred_scores shape:", pred_scores.shape)
-    #print("pred_scores shape:", pred_scores.shapelen)
-    
-    conf_threshold = 0.2
-    conf_mask = pred_scores < conf_threshold  # Shape [N], True where confidence >= threshold
-    
-    all_obj_labels = torch.zeros_like(all_counts).to("cpu") # [num_classes, N]
-    obj_num = all_counts.size(0)
-
-    for obj_idx, obj_counts in enumerate(tqdm(all_counts, desc="multi-view optimize")):
-        if obj_counts.sum().item() == 0:
-            continue
-
-        # Dynamic programming step
-        obj_counts = torch.stack([all_counts_sum - obj_counts, obj_counts], dim=0)
-
-        #if slackness != 0:
-        obj_counts = torch.nn.functional.normalize(obj_counts, dim=0)
-        obj_counts[0, :] += slackness
-        
-        # Add prior from learned labels, only for high-confidence predictions
-        prior_term = torch.zeros_like(obj_counts).to("cpu")  # Shape [2, N]
-        #print("prior_term size: ", prior_term.shape)
-        # Mask for Gaussians where initial_label == obj_idx and confidence >= threshold
-        valid_prior = (initial_labels == obj_idx) #& conf_mask
-        #if obj_idx == 34:
-        #    print("number of gaussians for label 34: ", torch.sum(valid_prior).item())
-        #print("valid_prior size: ", valid_prior.shape)
-        # For class=obj_idx, add gamma * pred_score for high-confidence Gaussians
-        prior_term[1, valid_prior] = gamma * pred_scores[valid_prior]
-        # For non-class (background), add gamma * pred_score if initial_label != obj_idx
-        valid_non_class = conf_mask
-        #prior_term[0, valid_non_class] = gamma * pred_scores[valid_non_class]
-        #print("valid_prior size: ", valid_prior.shapelen)
-        
-        obj_counts = obj_counts + prior_term
-        
-        
-        obj_label = obj_counts.max(dim=0)[1]
-        all_obj_labels[obj_idx] = obj_label
-        
-    return all_obj_labels
 
 def id2rgb(id, max_num_obj=256):
     if not 0 <= id <= max_num_obj:
@@ -447,7 +322,7 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
         mean_xyz = np.array([0.0128, 0.6468, 2.1148])
         obj_idd = find_objectId_from_3Dpoints(gaussians._xyz.detach().cpu().numpy(), pred_object_scores.squeeze(0), mean_xyz)
         #print("all_obj_labels: ", all_obj_labels.shapelen)
-        all_obj_labels = multi_instance_opt_prior_cpu_new(all_counts, pred_object_scores.squeeze(0), slackness, task).cuda()
+        all_obj_labels = label_reassignment_with_prior_cpu(all_counts, pred_object_scores.squeeze(0), slackness, task).cuda()
         #print("all_obj_labels: ", all_obj_labels.shape)
         
         del all_counts, pred_object, pred_object_scores
@@ -507,34 +382,6 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
                 torchvision.utils.save_image(rendering, os.path.join(obj_edit_path, '{0:05d}'.format(idx) + ".png"))
                
             save_mp4(obj_edit_path, 3)
-            
-        elif task == "eval":
-            print("objectIds: ", obj_ids)
-            removal_mask = torch.zeros(all_obj_labels.shape[1], dtype=torch.bool, device=all_obj_labels.device)
-    
-            removal_name = ""
-            for obj_idx in obj_ids:
-                removal_mask[all_obj_labels[obj_idx].bool()] = True 
-                removal_name += "_{:03d}".format(obj_idx)
-            remain_mask = ~removal_mask 
-            print("removal_mask shape: ", removal_mask.shape)
-            #xyz = get_object_mean_xyz(gaussians._xyz.detach().cpu().numpy(), removal_mask.cpu())
-            #print("remain_mask shape: ", remain_mask.shape.len)
-            
-    
-            obj_edit_path = os.path.join(model_path, name, "ours_{}".format(iteration), "new_remove_{}".format(removal_name))
-            os.makedirs(obj_edit_path, exist_ok=True)
-    
-            for idx, view in enumerate(tqdm(views_used, desc="Rendering removal")):
-                render_pkg = flashsplat_render(view, gaussians, pipeline, background, used_mask=removal_mask)
-                rendering = render_pkg["render"]
-                torchvision.utils.save_image(rendering, os.path.join(obj_edit_path, '{0:05d}'.format(idx) + ".png"))
-                
-            save_mp4(obj_edit_path, 3)
-            
-            print("editing gaussians: ")
-            filter_gaussians_by_mask(gaussians, remain_mask)
-            
             
         print("number of remained gaussians: ", gaussians._xyz.shape[0])
         save_edited_ply(gaussians, obj_edit_path, task)
