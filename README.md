@@ -196,9 +196,10 @@ The displayed results covers the quality by rendering all the views for various 
 
 
 ---
-## Step-by-step Tutorial for running the project
+---
+## Step-by-step tutorial for running the project
 
-# Cloning the Repository
+### Cloning the Repository
 The repository contains submodules, thus please check it out with 
 ```shell
 # SSH
@@ -210,7 +211,7 @@ or
 git clone https://github.com/joshir199/Object-Removal-And-Recolorization-Within-3D-Gaussian-Splatting.git --recursive
 ```
 
-## Optimizer
+### Optimizer
 
 The optimizer uses PyTorch and CUDA extensions in a Python environment to produce trained models same as official 3D-GS repo.
 
