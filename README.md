@@ -243,7 +243,7 @@ python object_editing.py --model_path <path to pre-trained model> --iteration 30
 ```
 Object removal for given object ID:
 ```shell
-python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --selcted_point <3d cooridinate in list form i.e : [x, y, z]> --skip_test  
+python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --selcted_3d_point <3d cooridinate in list form i.e : [x, y, z]> --skip_test  
 ```
 
 Object recolorization for given object ID:
@@ -252,7 +252,7 @@ python object_editing.py --model_path <path to pre-trained model> --iteration 30
 ```
 Object recolorization for given object ID:
 ```shell
-python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --selcted_point <3d cooridinate in list form i.e : [x, y, z]> --skip_test --task recolor
+python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --selcted_3d_point <3d cooridinate in list form i.e : [x, y, z]> --skip_test --task recolor
 ```
 Note: More details on the arguments similar to render.py can be found on official 3D-GS repo
 
