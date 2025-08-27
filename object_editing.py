@@ -15,6 +15,7 @@ import os
 from os import path as osp
 from tqdm import tqdm
 from os import makedirs
+import list
 # import imageio 
 import cv2 
 from gaussian_renderer import render
@@ -28,6 +29,7 @@ from gaussian_renderer import GaussianModel
 from PIL import Image
 import numpy as np
 import colorsys
+import ast
 
 import pdb 
 
@@ -265,7 +267,7 @@ def visualize_obj(objects):
     return rgb_mask
 
 def render_set(model_path, name, iteration, views, gaussians, pipeline, background, classifier,
-               slackness=0, view_num=-1, obj_num=255, obj_ids=[], task="object_removal"):
+               slackness=0, view_num=-1, obj_num=255, obj_ids=[], selected_3d_point= [0.0, 0.0, 0.0], task="object_removal"):
     
     render_path = os.path.join(model_path, name, "ours_{}".format(iteration), "renders")
     gts_path = os.path.join(model_path, name, "ours_{}".format(iteration), "gt")
@@ -319,11 +321,13 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
         print("pred_object shape: ", pred_object.shape) # [batch, 256, N]
         
         
-        mean_xyz = np.array([0.0128, 0.6468, 2.1148])
-        obj_idd = find_objectId_from_3Dpoints(gaussians._xyz.detach().cpu().numpy(), pred_object_scores.squeeze(0), mean_xyz)
-        #print("all_obj_labels: ", all_obj_labels.shapelen)
+        if obj_ids == -1:
+            mean_xyz = np.array(selected_3d_point)
+            obj_idd = find_objectId_from_3Dpoints(gaussians._xyz.detach().cpu().numpy(), pred_object_scores.squeeze(0), mean_xyz)
+            obj_ids = obj_idd
+
+        # Label reassignment
         all_obj_labels = label_reassignment_with_prior_cpu(all_counts, pred_object_scores.squeeze(0), slackness, task).cuda()
-        #print("all_obj_labels: ", all_obj_labels.shape)
         
         del all_counts, pred_object, pred_object_scores
 
@@ -389,7 +393,7 @@ def render_set(model_path, name, iteration, views, gaussians, pipeline, backgrou
 
 
 def render_sets(dataset : ModelParams, iteration : int, pipeline : PipelineParams, skip_train : bool, skip_test : bool, 
-                slackness : float, view_num : int, obj_num : int, obj_id: int, task: str):
+                slackness : float, view_num : int, obj_num : int, obj_id: int, selected_3d_point: list[float], task: str):
     with torch.no_grad():
         gaussians = GaussianModel(dataset.sh_degree)
         scene = Scene(dataset, gaussians, load_iteration=iteration, shuffle=False)
@@ -405,11 +409,11 @@ def render_sets(dataset : ModelParams, iteration : int, pipeline : PipelineParam
 
         if not skip_train:
              render_set(dataset.model_path, "train", scene.loaded_iter, scene.getTrainCameras(), gaussians, pipeline, background, classifier, 
-                        slackness, view_num, obj_num, obj_id, task)
+                        slackness, view_num, obj_num, obj_id, selected_3d_point, task)
 
         if not skip_test:
              render_set(dataset.model_path, "test", scene.loaded_iter, scene.getTestCameras(), gaussians, pipeline, background, classifier, 
-                        slackness, view_num, obj_num, obj_id, task)
+                        slackness, view_num, obj_num, obj_id, selected_3d_point, task)
 
 if __name__ == "__main__":
     # Set up command line argument parser
@@ -423,7 +427,8 @@ if __name__ == "__main__":
     parser.add_argument("--slackness", default=0.0, type=float)
     parser.add_argument("--view_num", default=10.0, type=int)
     parser.add_argument("--obj_num", default=1, type=int)
-    parser.add_argument('--obj_id', nargs='+', type=int, help='A list of integers')
+    parser.add_argument('--obj_id', nargs='+', default=-1, type=int, help='A list of integers')
+    parser.add_argument("--selected_3d_point", nargs=3, default=[0.0,0.0,0.0], type=float, help="x y z coordinates exactly 3 values one for each")
     parser.add_argument("--task", default="object_removal", type=str, help="Can be object_removal or recolor task")
     args = get_combined_args(parser)
     print("Rendering " + args.model_path)
@@ -431,7 +436,5 @@ if __name__ == "__main__":
     # Initialize system state (RNG)
     safe_state(args.quiet)
 
-    # args.object_path = args.object_mask
-
     render_sets(model.extract(args), args.iteration, pipeline.extract(args), args.skip_train, args.skip_test, 
-                args.slackness, args.view_num, args.obj_num, args.obj_id, args.task)
+                args.slackness, args.view_num, args.obj_num, args.obj_id, args.selected_3d_point, args.task)
