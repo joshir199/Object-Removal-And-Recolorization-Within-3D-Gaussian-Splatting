@@ -23,6 +23,15 @@ Please find the dataset here: ![huggingface link](https://huggingface.co/dataset
 ## Architecture
 
 <figure>
+  <img src="assets/object_mask_generation_pipeline.jpg" alt="Architecture Diagram 1" width="600">
+  <figcaption>Overview of the Object mask generation pipeline which uses SAM-HQ for mask generation and DEVA for
+object tracking to ensure consistent segmentation across views via bi-directional temporal propa-
+gation of mask IDs..</figcaption>
+</figure>
+
+&nbsp;
+
+<figure>
   <img src="assets/object_feature_architecture.jpg" alt="Architecture Diagram 1" width="600">
   <figcaption>Overview of the object feature-based 3D Gaussian Splatting training, where highquality
 object masks are generated for each image IGT across N views using SAM-HQ assisted
