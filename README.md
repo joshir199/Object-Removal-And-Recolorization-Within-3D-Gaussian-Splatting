@@ -250,7 +250,7 @@ Object removal for given object ID:
 ```shell
 python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --obj_id <OBJECT_ID> --skip_test  
 ```
-Object removal for given object ID:
+Object removal for given 3D point coordinate on 3D Object:
 ```shell
 python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --selcted_3d_point <3d cooridinate in list form i.e : [x, y, z]> --skip_test  
 ```
@@ -259,7 +259,7 @@ Object recolorization for given object ID:
 ```shell
 python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --obj_id <OBJECT_ID> --skip_test --task recolor
 ```
-Object recolorization for given object ID:
+Object recolorization for given 3D point coordinate on 3D Object:
 ```shell
 python object_editing.py --model_path <path to pre-trained model> --iteration 30000 --source_path <path to COLMAP dataset> --view_num -1 --obj_num 255 --white_background --selcted_3d_point <3d cooridinate in list form i.e : [x, y, z]> --skip_test --task recolor
 ```
